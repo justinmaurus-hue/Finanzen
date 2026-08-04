@@ -45,7 +45,6 @@ window.login=function(){
 let pin =
 document.getElementById("pin").value;
 
-
 let name = null;
 
 
@@ -60,15 +59,8 @@ name = person;
 }
 
 
-if(
-benutzer[name] &&
-benutzer[name].pin===pin
-){
-
+if(name){
 aktuellerUser=name;
-
-
-
 
 document.getElementById("loginBox").style.display="none";
 
