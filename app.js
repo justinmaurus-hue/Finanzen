@@ -56,31 +56,7 @@ benutzer[name].pin===pin
 
 aktuellerUser=name;
 
-  let auswahl =
-document.getElementById("bezahltVon");
 
-
-if(name==="Carola"){
-
-auswahl.value="Carola";
-auswahl.disabled=true;
-
-}
-
-
-else if(name==="Janine"){
-
-auswahl.value="Janine";
-auswahl.disabled=true;
-
-}
-
-
-else{
-
-auswahl.disabled=false;
-
-}
 
 
 document.getElementById("loginBox").style.display="none";
