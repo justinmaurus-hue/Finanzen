@@ -42,11 +42,22 @@ let aktuellerUser="";
 
 window.login=function(){
 
-let name =
-document.getElementById("user").value;
-
 let pin =
 document.getElementById("pin").value;
+
+
+let name = null;
+
+
+for(let person in benutzer){
+
+if(benutzer[person].pin === pin){
+
+name = person;
+
+}
+
+}
 
 
 if(
