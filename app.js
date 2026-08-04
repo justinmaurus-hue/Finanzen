@@ -104,13 +104,9 @@ alert("Falsche PIN");
 
 window.addAusgabe=async function(){
 
-let typ =
-document.getElementById("typ").value;
+let typ = "ausgabe";
 
 let bezahltVon = aktuellerUser;
-
-let empfaenger =
-document.getElementById("empfaenger").value;
 
 let betrag =
 Number(document.getElementById("betrag").value);
@@ -130,7 +126,6 @@ collection(db,"ausgaben"),
 {
 typ: typ,
 bezahltVon: bezahltVon,
-empfaenger: empfaenger,
 betrag: betrag,
 beschreibung: beschreibung,
 datum: new Date()
@@ -145,7 +140,6 @@ document.getElementById("beschreibung").value="";
 laden();
 
 };
-
 
 
 
