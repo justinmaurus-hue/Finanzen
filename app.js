@@ -62,14 +62,25 @@ document.getElementById("loginBox").style.display="none";
 document.getElementById("appBox").style.display="block";
 
 
-if(
-benutzer[name].rolle==="admin"
-){
+if(benutzer[name].rolle==="admin"){
 
 document.getElementById("adminBox").style.display="block";
 
-}
+document.getElementById("adminBox").innerHTML = `
 
+<h2>Admin Bereich</h2>
+
+<p>
+Du bist als Administrator angemeldet.
+</p>
+
+<button onclick="adminLoeschen()">
+Letzten Eintrag löschen
+</button>
+
+`;
+
+}
 
 laden();
 
