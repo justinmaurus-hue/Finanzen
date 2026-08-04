@@ -91,57 +91,46 @@ alert("Falsche PIN");
 
 window.addAusgabe=async function(){
 
+let typ =
+document.getElementById("typ").value;
 
-let bezahltVon=
+let bezahltVon =
 document.getElementById("bezahltVon").value;
 
+let empfaenger =
+document.getElementById("empfaenger").value;
 
-let betrag=
-Number(
-document.getElementById("betrag").value
-);
+let betrag =
+Number(document.getElementById("betrag").value);
 
-
-let beschreibung=
+let beschreibung =
 document.getElementById("beschreibung").value;
 
 
-
 if(!betrag){
-
 alert("Bitte Betrag eingeben");
-
 return;
-
 }
-
 
 
 await addDoc(
 collection(db,"ausgaben"),
 {
-
-bezahltVon:bezahltVon,
-
-betrag:betrag,
-
-beschreibung:beschreibung,
-
-datum:new Date()
-
+typ: typ,
+bezahltVon: bezahltVon,
+empfaenger: empfaenger,
+betrag: betrag,
+beschreibung: beschreibung,
+datum: new Date()
 }
-
 );
 
 
-
 document.getElementById("betrag").value="";
-
 document.getElementById("beschreibung").value="";
 
 
 laden();
-
 
 };
 
@@ -199,24 +188,38 @@ anzeigen(liste);
 
 function berechnen(liste){
 
-
 let stand=0;
-
 
 
 liste.forEach(e=>{
 
 
-if(e.bezahltVon==="Carola"){
+// gemeinsame Ausgabe
 
-stand += e.betrag/2;
+if(e.typ==="ausgabe"){
+
+if(e.bezahltVon==="Carola"){
+stand += e.betrag / 2;
+}
+
+if(e.bezahltVon==="Janine"){
+stand -= e.betrag / 2;
+}
 
 }
 
 
-if(e.bezahltVon==="Janine"){
+// Rückzahlung
 
-stand -= e.betrag/2;
+if(e.typ==="rueckzahlung"){
+
+if(e.bezahltVon==="Janine" && e.empfaenger==="Carola"){
+stand -= e.betrag;
+}
+
+if(e.bezahltVon==="Carola" && e.empfaenger==="Janine"){
+stand += e.betrag;
+}
 
 }
 
@@ -224,33 +227,26 @@ stand -= e.betrag/2;
 });
 
 
-
-let text="";
+let text;
 
 
 if(stand>0){
 
-text=
+text =
 "Janine schuldet Carola "
-+
-stand.toFixed(2)
-+
-" €";
++ stand.toFixed(2)
++ " €";
 
 }
-
 
 else if(stand<0){
 
-text=
+text =
 "Carola schuldet Janine "
-+
-Math.abs(stand).toFixed(2)
-+
-" €";
++ Math.abs(stand).toFixed(2)
++ " €";
 
 }
-
 
 else{
 
@@ -259,12 +255,9 @@ text="Alles ausgeglichen";
 }
 
 
-
 document.getElementById("stand").innerHTML=text;
 
-
 }
-
 
 
 
