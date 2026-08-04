@@ -17,17 +17,17 @@ from
 const benutzer = {
 
 Justin:{
-pin:"1234",
+pin:"0203",
 rolle:"admin"
 },
 
 Carola:{
-pin:"2345",
+pin:"1509",
 rolle:"user"
 },
 
 Janine:{
-pin:"3456",
+pin:"1002",
 rolle:"user"
 }
 
