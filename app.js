@@ -131,8 +131,7 @@ window.addAusgabe=async function(){
 let typ =
 document.getElementById("typ").value;
 
-let bezahltVon =
-document.getElementById("bezahltVon").value;
+let bezahltVon = aktuellerUser;
 
 let empfaenger =
 document.getElementById("empfaenger").value;
@@ -394,8 +393,7 @@ box.style.display="none";
 
 window.addRueckzahlung=async function(){
 
-let von =
-document.getElementById("vonPerson").value;
+let von = aktuellerUser;
 
 
 let betrag =
