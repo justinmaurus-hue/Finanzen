@@ -88,6 +88,40 @@ placeholder="Beschreibung">
 Speichern
 </button>
 
+  <button onclick="zeigeRueckzahlung()">
+Schuld begleichen
+</button>
+
+
+<div id="rueckzahlungBox" style="display:none">
+
+<h3>Rückzahlung</h3>
+
+
+<select id="vonPerson">
+<option>Carola</option>
+<option>Janine</option>
+</select>
+
+
+<select id="anPerson">
+<option>Janine</option>
+<option>Carola</option>
+</select>
+
+
+<input 
+id="rueckBetrag"
+type="number"
+placeholder="Betrag €">
+
+
+<button onclick="addRueckzahlung()">
+Rückzahlung speichern
+</button>
+
+
+</div>
 
 </div>
 
