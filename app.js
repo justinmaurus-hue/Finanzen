@@ -394,13 +394,8 @@ box.style.display="none";
 
 window.addRueckzahlung=async function(){
 
-
 let von =
 document.getElementById("vonPerson").value;
-
-
-let an =
-document.getElementById("anPerson").value;
 
 
 let betrag =
@@ -409,12 +404,28 @@ document.getElementById("rueckBetrag").value
 );
 
 
-
 if(!betrag){
 
 alert("Bitte Betrag eingeben");
 
 return;
+
+}
+
+
+// automatische Gegenseite
+
+let an;
+
+
+if(von==="Carola"){
+
+an="Janine";
+
+}
+else{
+
+an="Carola";
 
 }
 
