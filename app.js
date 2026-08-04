@@ -292,17 +292,32 @@ html += `
 <b>${e.bezahltVon}</b>
 hat
 ${e.betrag} €
-
 bezahlt
 
 <br>
 
 ${e.beschreibung || ""}
 
-</div>
+`;
+
+if(
+aktuellerUser==="Justin"
+){
+
+html += `
+
+<br>
+
+<button onclick="adminLoeschen('${e.id}')">
+Löschen
+</button>
 
 `;
 
+}
+
+
+html += `</div>`;
 
 });
 
@@ -310,5 +325,23 @@ ${e.beschreibung || ""}
 
 document.getElementById("verlauf").innerHTML=html;
 
+window.adminLoeschen = async function(id){
 
+let sicher =
+confirm("Diesen Eintrag wirklich löschen?");
+
+
+if(!sicher){
+return;
+}
+
+
+await deleteDoc(
+doc(db,"ausgaben",id)
+);
+
+
+laden();
+
+};
 }
