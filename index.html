@@ -50,11 +50,25 @@ Wird geladen...
 <h2>Neue Ausgabe</h2>
 
 
-<label>
-Bezahlt von:
-</label>
+<label>Art:</label>
+
+<select id="typ">
+<option value="ausgabe">Gemeinsame Ausgabe</option>
+<option value="rueckzahlung">Schuld zurückzahlen</option>
+</select>
+
+
+<label>Bezahlt von:</label>
 
 <select id="bezahltVon">
+<option>Carola</option>
+<option>Janine</option>
+</select>
+
+
+<label>Bei Rückzahlung: Wer bekommt das Geld?</label>
+
+<select id="empfaenger">
 <option>Carola</option>
 <option>Janine</option>
 </select>
@@ -69,7 +83,6 @@ placeholder="Betrag €">
 <input 
 id="beschreibung"
 placeholder="Beschreibung">
-
 
 <button onclick="addAusgabe()">
 Speichern
