@@ -1,1 +1,116 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Ausgleich</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<div id="loginBox" class="box">
+
+<h1>Ausgleich</h1>
+
+<select id="user">
+<option value="Justin">Justin</option>
+<option value="Carola">Carola</option>
+<option value="Janine">Janine</option>
+</select>
+
+<input id="pin" type="password" placeholder="PIN">
+
+<button onclick="login()">Anmelden</button>
+
+</div>
+
+
+<div id="appBox" style="display:none">
+
+
+<div class="box">
+
+<h2>Aktueller Stand</h2>
+
+<div id="stand" class="stand">
+Wird geladen...
+</div>
+
+</div>
+
+
+
+<div class="box">
+
+<h2>Neue Ausgabe</h2>
+
+
+<label>
+Bezahlt von:
+</label>
+
+<select id="bezahltVon">
+<option>Carola</option>
+<option>Janine</option>
+</select>
+
+
+<input 
+id="betrag"
+type="number"
+placeholder="Betrag €">
+
+
+<input 
+id="beschreibung"
+placeholder="Beschreibung">
+
+
+<button onclick="addAusgabe()">
+Speichern
+</button>
+
+
+</div>
+
+
+
+<div class="box">
+
+<h2>Verlauf</h2>
+
+<div id="verlauf"></div>
+
+</div>
+
+
+
+<div 
+id="adminBox"
+class="box"
+style="display:none">
+
+<h2>Admin</h2>
+
+<p>
+Justin kann hier später Einträge verwalten.
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
