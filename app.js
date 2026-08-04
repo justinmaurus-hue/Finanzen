@@ -56,6 +56,32 @@ benutzer[name].pin===pin
 
 aktuellerUser=name;
 
+  let auswahl =
+document.getElementById("bezahltVon");
+
+
+if(name==="Carola"){
+
+auswahl.value="Carola";
+auswahl.disabled=true;
+
+}
+
+
+else if(name==="Janine"){
+
+auswahl.value="Janine";
+auswahl.disabled=true;
+
+}
+
+
+else{
+
+auswahl.disabled=false;
+
+}
+
 
 document.getElementById("loginBox").style.display="none";
 
@@ -345,3 +371,80 @@ laden();
 
 };
 }
+window.zeigeRueckzahlung=function(){
+
+let box =
+document.getElementById("rueckzahlungBox");
+
+
+if(box.style.display==="none"){
+
+box.style.display="block";
+
+}
+else{
+
+box.style.display="none";
+
+}
+
+};
+
+
+
+window.addRueckzahlung=async function(){
+
+
+let von =
+document.getElementById("vonPerson").value;
+
+
+let an =
+document.getElementById("anPerson").value;
+
+
+let betrag =
+Number(
+document.getElementById("rueckBetrag").value
+);
+
+
+
+if(!betrag){
+
+alert("Bitte Betrag eingeben");
+
+return;
+
+}
+
+
+
+await addDoc(
+collection(db,"ausgaben"),
+{
+
+typ:"rueckzahlung",
+
+bezahltVon:von,
+
+empfaenger:an,
+
+betrag:betrag,
+
+beschreibung:"Rückzahlung",
+
+datum:new Date()
+
+}
+
+);
+
+
+document.getElementById("rueckBetrag").value="";
+
+
+laden();
+
+
+};
